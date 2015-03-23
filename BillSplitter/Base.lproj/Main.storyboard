@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,81 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eES-d4-zhl">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNV-a2-ZiW">
+                                <rect key="frame" x="251" y="218" width="98" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="BiX-YU-7ZT"/>
+                                    <constraint firstAttribute="width" constant="98" id="JEv-8s-RB2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                <state key="normal" title="Split Bill">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateSplitBill:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fqH-qm-9Aw"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="dCa-gw-HPa">
+                                <rect key="frame" x="14" y="105" width="572" height="31"/>
+                                <connections>
+                                    <action selector="displaySliderNumber:" destination="vXZ-lx-hvc" eventType="valueChanged" id="l6O-0K-TZG"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEO-Dx-eya">
+                                <rect key="frame" x="16" y="315" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nS-Fx-koq">
+                                <rect key="frame" x="189" y="153" width="222" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="222" id="2N4-Za-8gZ"/>
+                                    <constraint firstAttribute="height" constant="21" id="A06-Ac-q0B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.63815789473684215" green="0.8341338256123787" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dCa-gw-HPa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="2nw-JV-hhA"/>
+                            <constraint firstItem="6nS-Fx-koq" firstAttribute="top" secondItem="dCa-gw-HPa" secondAttribute="bottom" constant="18" id="3Ca-tT-3Wi"/>
+                            <constraint firstAttribute="centerX" secondItem="dCa-gw-HPa" secondAttribute="centerX" id="6OG-3y-bae"/>
+                            <constraint firstAttribute="centerX" secondItem="6nS-Fx-koq" secondAttribute="centerX" id="ALx-Qj-RCj"/>
+                            <constraint firstItem="eES-d4-zhl" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="BGH-rc-hxw"/>
+                            <constraint firstItem="BNV-a2-ZiW" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="0.8" id="EYO-bG-o36"/>
+                            <constraint firstItem="BEO-Dx-eya" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TDT-Sz-LlT"/>
+                            <constraint firstItem="BEO-Dx-eya" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="eOh-pP-0c2"/>
+                            <constraint firstItem="dCa-gw-HPa" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="lE9-jh-HcH"/>
+                            <constraint firstItem="BEO-Dx-eya" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="1.1" id="nEP-jW-M2v"/>
+                            <constraint firstAttribute="centerX" secondItem="BEO-Dx-eya" secondAttribute="centerX" id="u7r-7q-3s1"/>
+                            <constraint firstAttribute="trailing" secondItem="eES-d4-zhl" secondAttribute="trailing" constant="16" id="wPH-kG-aVw"/>
+                            <constraint firstItem="eES-d4-zhl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="zHp-Ig-qtT"/>
+                            <constraint firstItem="dCa-gw-HPa" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" multiplier="0.4" id="zYB-XP-F1v"/>
+                            <constraint firstAttribute="centerX" secondItem="BNV-a2-ZiW" secondAttribute="centerX" id="zif-J9-PHF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billTextField" destination="eES-d4-zhl" id="JQd-b9-3Cb"/>
+                        <outlet property="numberOfPeopleSlider" destination="dCa-gw-HPa" id="tK9-6d-V8d"/>
+                        <outlet property="showPeopleLabel" destination="6nS-Fx-koq" id="b50-sJ-0NX"/>
+                        <outlet property="splitAmountLabel" destination="BEO-Dx-eya" id="F0M-N5-fVj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-758" y="299"/>
         </scene>
     </scenes>
 </document>
